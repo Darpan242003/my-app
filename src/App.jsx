@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-     <Navbar />
+     <Navbar title="TextUtils2" aboutText="About Us"/>
      {/* here variables title and aboutText are passed as props.  */}
     </>
   )
