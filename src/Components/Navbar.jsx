@@ -33,8 +33,8 @@ const Navbar = (props) => {
 
 // Proptypes
 Navbar.propTypes = {
-  title: PropTypes.string, 
-  aboutText: PropTypes.string
+  title: PropTypes.string.isRequired, 
+  aboutText: PropTypes.string.isRequired
 }
 //If we give title = {3} we will get an error because we have set proptype = string
 //Proptype acts as a constraints
