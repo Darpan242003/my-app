@@ -7,9 +7,9 @@ function App() {
   return (
     <>
       
-      {/* <Navbar /> */} {/*Here we haven't passed any props so it will render the defaulProps. */}
+      {/* <Navbar /> */} {/*Here we haven't passed any props so it will render the defaultProps. */}
       <Navbar title="TextUtils" aboutText="About Us" />
-      {/* here variables title and aboutText are passed as props.  */}
+      {/* here variables title and aboutText are passed as props to Navbar component.  */}
     </>
   )
 }

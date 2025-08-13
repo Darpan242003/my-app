@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-// to pass props in a component
+//Here props are accepted in our Navbar component
 const Navbar = (props) => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -31,7 +31,7 @@ const Navbar = (props) => {
   )
 }
 
-// Proptypes
+// Proptypes: informs the type of a prop.
 Navbar.propTypes = {
   title: PropTypes.string.isRequired, 
   aboutText: PropTypes.string.isRequired
