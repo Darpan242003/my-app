@@ -6,8 +6,10 @@ function App() {
 
   return (
     <>
-     <Navbar title="TextUtils2" aboutText="About Us"/>
-     {/* here variables title and aboutText are passed as props.  */}
+      
+      <Navbar /> {/* Here we haven't passed any props so it will render the defaulProps. */}
+      {/* <Navbar title="TextUtils" aboutText="About Us" /> */}
+      {/* here variables title and aboutText are passed as props.  */}
     </>
   )
 }
