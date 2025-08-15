@@ -33,7 +33,7 @@ const Navbar = (props) => {
 
 // Proptypes: informs the type of a prop.
 Navbar.propTypes = {
-  title: PropTypes.string.isRequired, 
+  title: PropTypes.string.isRequired, //when we use isRequired it will throw the error if we don't provide the value for title or AboutText.
   aboutText: PropTypes.string.isRequired
 }
 //If we give title = {3} we will get an error because we have set proptype = string
