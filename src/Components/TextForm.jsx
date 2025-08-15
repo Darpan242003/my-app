@@ -11,6 +11,14 @@ export default function TextForm(props) {
         setText(newText) //correct way to change value of text
     }
 
+    const handleLoClick = () => {
+        // console.log('Uppercase was clicked' + text)
+
+        let newText = text.toLowerCase() //method to convert text to uppercase
+
+        setText(newText) //correct way to change value of text
+    }
+
     const handleOnChange = (event) => {
         // console.log('On change')
         setText(event.target.value) //this will set the text we type in textarea as a new value of text.
@@ -27,7 +35,8 @@ export default function TextForm(props) {
                     <textarea className="form-control" onChange={handleOnChange} value={text} id="myBox" rows="8"></textarea>
                     {/* we have used value={text} which displays "Enter Text Here" in textarea */}
                 </div>
-                <button className="btn btn-primary" onClick={handleUpClick}>Convert to Uppercase</button>
+                <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
+                <button className="btn btn-primary mx-1" onClick={handleLoClick}>Convert to Lowercase</button>
                 {/* onClick={handleUpClick} whenever we click on the button handleUpClick function will invoke. */}
             </div>
             <div className="container my-3">
