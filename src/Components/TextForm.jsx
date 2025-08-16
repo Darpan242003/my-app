@@ -23,9 +23,9 @@ export default function TextForm(props) {
         let newText = "" //method to convert text to uppercase
         setText(newText) //correct way to change value of text
     }
-    
+
     //function to extract urls
-    const extractUrl = (text)=> {
+    const extractUrl = (text) => {
         const urlText = /(https?:\/\/[^\s]+)/g
         return text.match(urlText)
     }
@@ -55,7 +55,13 @@ export default function TextForm(props) {
                 <h2>Your Text Summary</h2>
                 <p>{text.split(" ").length} words and {text.length} characters</p>
                 <p>{text.split(" ").length * 0.008} Minutes to read</p>
-                <p>{extractUrl(text).length} Url found</p>
+                <p>{extractUrl(text)?.length || 0} URL Found</p>
+                {/* The ? before .length is called optional chaining in JavaScript.
+It safely accesses the .length property only if extractUrl(text) is not null or undefined.
+
+If extractUrl(text) returns an array, it gets the array's length.
+If it returns null or undefined, it does not throw an error—instead, it returns undefined.
+This prevents runtime errors when you try to access .length on a value that might be null or undefined.*/}
                 {/* This above p-tag renders the number of urls extracted. */}
                 <h3>Preview</h3>
                 <p>{text}</p>
