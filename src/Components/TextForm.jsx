@@ -23,6 +23,12 @@ export default function TextForm(props) {
         let newText = "" //method to convert text to uppercase
         setText(newText) //correct way to change value of text
     }
+    
+    //function to extract urls
+    const extractUrl = (text)=> {
+        const urlText = /(https?:\/\/[^\s]+)/g
+        return text.match(urlText)
+    }
 
     const handleOnChange = (event) => {
         // console.log('On change')
@@ -42,13 +48,15 @@ export default function TextForm(props) {
                 </div>
                 <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
                 <button className="btn btn-primary mx-1" onClick={handleLoClick}>Convert to Lowercase</button>
-                <button className="btn btn-primary mx-1" onClick={handleClearClick}>Clear Text</button>
+                <button className="btn btn-danger mx-1" onClick={handleClearClick}>Clear Text</button>
                 {/* onClick={handleUpClick} whenever we click on the button handleUpClick function will invoke. */}
             </div>
             <div className="container my-3">
                 <h2>Your Text Summary</h2>
                 <p>{text.split(" ").length} words and {text.length} characters</p>
                 <p>{text.split(" ").length * 0.008} Minutes to read</p>
+                <p>{extractUrl(text).length} Url found</p>
+                {/* This above p-tag renders the number of urls extracted. */}
                 <h3>Preview</h3>
                 <p>{text}</p>
             </div>
