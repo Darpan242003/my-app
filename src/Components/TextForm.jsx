@@ -40,10 +40,10 @@ export default function TextForm(props) {
     // setText is updating function of Text wherever it is present i.e. the text content will get updated through this function. all of this happens without reloading the page
     return (
         <>
-            <div className='container'>
+            <div className='container' style={{ color: props.mode === 'dark' ? 'white' : 'black' }}/*style to change text color*/>
                 <h1>{props.heading}</h1> {/* heading prop accepted in TextForm */}
                 <div className="mb-3">
-                    <textarea className="form-control" onChange={handleOnChange} value={text} id="myBox" rows="8"></textarea>
+                    <textarea className="form-control" onChange={handleOnChange} value={text} id="myBox" rows="8" style={{ backgroundColor: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}/*Javascript to style the text area by passing a style object in the form of ternary operator*/></textarea>
                     {/* we have used value={text} which displays "Enter Text Here" in textarea */}
                 </div>
                 <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
@@ -51,7 +51,7 @@ export default function TextForm(props) {
                 <button className="btn btn-danger mx-1" onClick={handleClearClick}>Clear Text</button>
                 {/* onClick={handleUpClick} whenever we click on the button handleUpClick function will invoke. */}
             </div>
-            <div className="container my-3">
+            <div className="container my-3" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}/*style to change text color*/>
                 <h2>Your Text Summary</h2>
                 <p>{text.split(" ").length} words and {text.length} characters</p>
                 <p>{text.split(" ").length * 0.008} Minutes to read</p>
@@ -64,7 +64,7 @@ If it returns null or undefined, it does not throw an error—instead, it return
 This prevents runtime errors when you try to access .length on a value that might be null or undefined.*/}
                 {/* This above p-tag renders the number of urls extracted. */}
                 <h3>Preview</h3>
-                <p>{text}</p>
+                <p>{text.length>0 ? text: 'Enter some text here to preview'}</p>
             </div>
         </>
     )
