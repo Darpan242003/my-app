@@ -13,14 +13,14 @@ export default function TextForm(props) {
     const handleLoClick = () => {
         // console.log('Uppercase was clicked' + text)
 
-        let newText = text.toLowerCase() //method to convert text to uppercase
+        let newText = text.toLowerCase() //method to convert text to lowercase
         setText(newText) //correct way to change value of text
     }
 
     const handleClearClick = () => {
         // console.log('Uppercase was clicked' + text)
 
-        let newText = "" //method to convert text to uppercase
+        let newText = "" //method to clear text 
         setText(newText) //correct way to change value of text
     }
 
