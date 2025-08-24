@@ -3,11 +3,18 @@ import React, { useState } from 'react'
 
 
 export default function TextForm(props) {
+    
+    const handleOnChange = (event) => {
+        // console.log('On change')
+        setText(event.target.value) //this will set the text we type in textarea as a new value of text.
+    }
+
     const handleUpClick = () => {
         // console.log('Uppercase was clicked' + text)
 
         let newText = text.toUpperCase() //method to convert text to uppercase
         setText(newText) //correct way to change value of text
+        props.showAlert('Converted to Uppercase', 'success')
     }
 
     const handleLoClick = () => {
@@ -15,6 +22,7 @@ export default function TextForm(props) {
 
         let newText = text.toLowerCase() //method to convert text to lowercase
         setText(newText) //correct way to change value of text
+        props.showAlert('Converted to Lowercase', 'success')
     }
 
     const handleClearClick = () => {
@@ -22,17 +30,13 @@ export default function TextForm(props) {
 
         let newText = "" //method to clear text 
         setText(newText) //correct way to change value of text
+        props.showAlert('Text Cleared', 'success')
     }
 
     //function to extract urls
     const extractUrl = (text) => {
         const urlText = /(https?:\/\/[^\s]+)/g
         return text.match(urlText)
-    }
-
-    const handleOnChange = (event) => {
-        // console.log('On change')
-        setText(event.target.value) //this will set the text we type in textarea as a new value of text.
     }
 
     const [text, setText] = useState("Enter Text Here")

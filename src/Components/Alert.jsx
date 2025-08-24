@@ -6,7 +6,6 @@ export default function Alert(props) {
         props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
         {/* && is used because default state of alert is null it provides logic that if prop.alert is "not null" then execute this. */}
             <strong>{props.alert.type}</strong> : {props.alert.msg} {/*it will display the output in the form of "success: message"*/}
-            <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
 
     )
