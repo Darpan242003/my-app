@@ -57,8 +57,8 @@ export default function TextForm(props) {
             </div>
             <div className="container my-3" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}/*style to change text color*/>
                 <h2>Your Text Summary</h2>
-                <p>{text.split(" ").length} words and {text.length} characters</p>
-                <p>{text.split(" ").length * 0.008} Minutes to read</p>
+                <p>{text.split(" ").filter(word => word.trim() !== "").length} words and {text.length} characters</p>
+                <p>{text.split(" ").filter(word => word.trim() !== "").length * 0.008} Minutes to read</p>
                 <p>{extractUrl(text)?.length || 0} URL Found</p>
                 {/* The ? before .length is called optional chaining in JavaScript.
 It safely accesses the .length property only if extractUrl(text) is not null or undefined.
