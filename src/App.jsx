@@ -5,6 +5,12 @@ import Navbar from './Components/Navbar'
 import TextForm from './Components/TextForm'
 import Alert from './Components/Alert'
 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+
 function App() {
   const [mode, setMode] = useState('light') //use state to set the state as dark or light.
 
@@ -29,7 +35,7 @@ function App() {
     document.body.style.backgroundColor = '#65a2feff'
     setNavbarBg('#0d6efd')
   }
-  
+
   const backgroundRed = () => {
     document.body.style.backgroundColor = '#fa717fff'
     setNavbarBg('#dc3545')
@@ -60,18 +66,24 @@ function App() {
   return (
     <>
 
-      {/* <Navbar /> */} {/*Here we haven't passed any props so it will render the defaultProps. */}
-      <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} backgroundBlue={backgroundBlue} backgroundYellow={backgroundYellow} backgroundGreen={backgroundGreen} backgroundRed={backgroundRed} navbarBg={navbarBg}/> {/*pass the mode state and toggleMode function as prop with the variables of same name*/}
-      {/* here variables title and aboutText are passed as props to Navbar component.  */}
+      <Router>
+        {/* <Navbar /> */} {/*Here we haven't passed any props so it will render the defaultProps. */}
+        <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} backgroundBlue={backgroundBlue} backgroundYellow={backgroundYellow} backgroundGreen={backgroundGreen} backgroundRed={backgroundRed} navbarBg={navbarBg} /> {/*pass the mode state and toggleMode function as prop with the variables of same name*/}
+        {/* here variables title and aboutText are passed as props to Navbar component.  */}
 
-      <Alert alert={alert} />
+        <Alert alert={alert} />
 
-      <div className="container my-3"> {/* container is bootstrap class to keep the component in the middle and add equal margin at all sides 
+        <div className="container my-3"> {/* container is bootstrap class to keep the component in the middle and add equal margin at all sides 
       my-3: bootstrap class to add margin across y-axis*/}
-        {/* Add Heading as a prop in the textform */}
-       <TextForm heading="Enter your text to analyze below" mode={mode} showAlert={showAlert}/>{/* pass the showAlert method in Textform*/}
-        {/* <About/> */}
-      </div>
+          {/* Add Heading as a prop in the textform */}
+          <Routes>
+            <Route exact path="/about" element={<About />}></Route>
+            <Route exact path="/" element={<TextForm heading="Enter your text to analyze below" mode={mode} showAlert={showAlert} />}>
+              {/* pass the showAlert method in Textform*/}
+            </Route>
+          </Routes>
+        </div>
+      </Router>
 
 
     </>
