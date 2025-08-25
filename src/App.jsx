@@ -13,15 +13,17 @@ function App() {
       setMode('dark')
       document.body.style.backgroundColor = 'black' //changes background of body to black
       showAlert('Dark Mode has been enabled', 'success')
+      document.title = 'TextUtils - Dark Mode'
     }
     else {
       setMode('light')
       document.body.style.backgroundColor = 'white' //changes background of body to black
       showAlert('Light Mode has been enabled', 'success')
+      document.title = 'TextUtils - Light Mode'
     }
   }//function to change mode.
 
-  const [navbarBg, setNavbarBg] = useState('light')
+  const [navbarBg, setNavbarBg] = useState('')
 
   const backgroundBlue = () => {
     document.body.style.backgroundColor = '#65a2feff'

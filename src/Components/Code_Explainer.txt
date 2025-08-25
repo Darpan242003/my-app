@@ -1,0 +1,14 @@
+text.split(" ") - Splits the string into an array using spaces as delimiters
+
+Example: "hello world" becomes ["hello", "world"]
+Example: "hello  world" becomes ["hello", "", "world"] (note the empty string from double space)
+
+
+.filter(word => word.trim() !== "") - Filters out any empty or whitespace-only elements
+
+word.trim() removes leading/trailing whitespace from each word
+!== "" keeps only elements that aren't empty strings after trimming
+This handles cases with multiple spaces, tabs, or other whitespace
+
+
+.length - Returns the count of remaining elements in the filtered array
