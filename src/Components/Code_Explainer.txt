@@ -32,3 +32,35 @@ reference: https://v5.reactrouter.com/web/guides/quick-start
 
 note: always use "exact path.." inside a Router,
 it will render the exact page when clicked on it.
+
+
+>>Deploy your website on Github:
+
+1. visit this site: https://create-react-app.dev/docs/deployment/#github-pages
+2. add homepage to package.json at the top
+3. replace the myusername and my-app with your username and your app name respectively in homepage.
+4. install gh-pages: npm install --save gh-pages
+5. add 
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    to "scripts" in package.json
+6. Deploy the site by running "npm run deploy"
+
+NOTE: after step 6 an error occured because gh-pages is looking for build folder but in vite a dist folder is generated.
+for this change the line: "deploy": "gh-pages -d build", to "deploy": "gh-pages -d dist",
+
+AND in vite.config.js:
+
+ADD this line base: '/my-app/',
+
+so the file becomes:
+import {
+  defineConfig
+} from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  base: '/my-app/',
+})
