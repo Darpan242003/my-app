@@ -25,12 +25,32 @@ reference: https://v5.reactrouter.com/web/guides/quick-start
         Routes,
         Route,
     } from "react-router-dom";
-2. insert "switch" in the div (component)
-3. put your components inside "switch" (About and TextForm in our website)
+2. insert "Routes" in the div (component) ==> "Switch" in older Versions.
+3. Enclose your components (About and TextForm in our website) inside "Route Tag" and provide two attributes: path and element
 4. put everything inside the "Router"
 5. in Navbar replace "a" with "Link" and "href" with "to"
 
-note: always use "exact path.." inside a Router,
+Example:
+<Router>
+        {/* <Navbar /> */} {/*Here we haven't passed any props so it will render the defaultProps. */}
+        <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} backgroundBlue={backgroundBlue} backgroundYellow={backgroundYellow} backgroundGreen={backgroundGreen} backgroundRed={backgroundRed} navbarBg={navbarBg} /> {/*pass the mode state and toggleMode function as prop with the variables of same name*/}
+        {/* here variables title and aboutText are passed as props to Navbar component.  */}
+
+        <Alert alert={alert} />
+
+        <div className="container my-3"> {/* container is bootstrap class to keep the component in the middle and add equal margin at all sides 
+      my-3: bootstrap class to add margin across y-axis*/}
+          {/* Add Heading as a prop in the textform */}
+          <Routes>
+            <Route path='/about' element={<About mode={mode}/>}></Route>
+            <Route path='/' element={<TextForm heading="Enter your text to analyze below" mode={mode} showAlert={showAlert} />}></Route>
+            
+            {/* pass the showAlert method in Textform*/}
+          </Routes>
+        </div>
+      </Router>
+
+note: always use "exact path.." inside a Route tag, ==> not needed because in newer versions paths are exact by default.
 it will render the exact page when clicked on it.
 
 
@@ -64,3 +84,5 @@ export default defineConfig({
   plugins: [react()],
   base: '/my-app/',
 })
+
+cls: cumulative layout shift => To remove it, placed the "alert" component in saperate div and increased margin to 60px.

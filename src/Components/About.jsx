@@ -1,34 +1,12 @@
-import React, { useState } from 'react'
+const About = (props) => {
 
-const About = () => {
-
-    const [myStyle, setMyStyle] = useState(
+    const myStyle =
         {
-            color: "black",
-            backgroundColor: "white",
+            color: props.mode === 'dark' ? 'white' : 'black',
+            backgroundColor: props.mode === 'dark' ? 'black' : 'white'
         }
-    )
-    // handle text in the button
-    const [btnText, setBtnText] = useState("Enable Dark Mode")
-    // function to toggle background color
-    const toggleStyle = () => {
-        if (myStyle.backgroundColor === 'white') {
-            setMyStyle(
-                {
-                    color: "white",
-                    backgroundColor: "black",
-                    border: "1px solid white"
-                }
-            ); setBtnText("Enable Light Mode")
-        } else {
-            setMyStyle(
-                {
-                    color: "black",
-                    backgroundColor: "white",
-                }
-            ); setBtnText("Enable Dark Mode")
-        }
-    }
+    
+    
 
     return (
         <div className='container' style={myStyle}>
@@ -37,7 +15,7 @@ const About = () => {
                 <div className="accordion-item" style={myStyle}>
                     <h2 className="accordion-header">
                         <button className="accordion-button" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Accordion Item #1
+                            <strong>Analyze your text</strong>
                         </button>
                     </h2>
                     <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
@@ -49,7 +27,7 @@ const About = () => {
                 <div className="accordion-item" style={myStyle}>
                     <h2 className="accordion-header">
                         <button className="accordion-button collapsed" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Accordion Item #2
+                            <strong>Free to use</strong>
                         </button>
                     </h2>
                     <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -61,7 +39,7 @@ const About = () => {
                 <div className="accordion-item" style={myStyle}>
                     <h2 className="accordion-header">
                         <button className="accordion-button collapsed" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Accordion Item #3
+                            <strong>Browser Compatible</strong>
                         </button>
                     </h2>
                     <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -71,10 +49,7 @@ const About = () => {
                     </div>
                 </div>
             </div>
-            <div className='container my-3'>
-                <button type="button" onClick={toggleStyle} class="btn btn-primary">{btnText}</button>
-                {/* Button to change background color */}
-            </div>
+           
 
         </div>
     )
