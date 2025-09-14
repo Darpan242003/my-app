@@ -25,6 +25,12 @@ export default function TextForm(props) {
         props.showAlert('Converted to Lowercase', 'success')
     }
 
+    const handleWhiteSpace = () => {
+        let newText = text.replace(/\s+/g, ' ')
+        setText(newText)
+        props.showAlert('Removed Extra Whitespaces', 'success')
+    }
+
     const handleClearClick = () => {
         // console.log('Uppercase was clicked' + text)
 
@@ -52,6 +58,7 @@ export default function TextForm(props) {
                 </div>
                 <button disabled={text.length === 0}className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Convert to Uppercase</button>
                 <button disabled={text.length === 0}className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>Convert to Lowercase</button>
+                <button disabled={text.length === 0}className="btn btn-primary mx-1 my-1" onClick={handleWhiteSpace}>Remove Whitespaces</button>
                 <button disabled={text.length === 0}className="btn btn-danger mx-1 my-1" onClick={handleClearClick}>Clear Text</button>
                 {/* onClick={handleUpClick} whenever we click on the button handleUpClick function will invoke. */}
             </div>
