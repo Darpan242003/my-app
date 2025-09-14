@@ -19,7 +19,7 @@ const Navbar = (props) => {
       className={`navbar navbar-expand-lg navbar-${props.mode} ${!props.navbarBg ? `bg-${props.mode}` : ''}`}
       style={getNavbarStyle()}
     >
-    {/*change the navbar-light and bg-light properties with props to change light/dark using javascript template literals.*/}
+      {/*change the navbar-light and bg-light properties with props to change light/dark using javascript template literals.*/}
       <div className="container-fluid">
         {/* title variable as prop */}
         <Link className="navbar-brand" to="/">{props.title}</Link>
@@ -40,10 +40,6 @@ const Navbar = (props) => {
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <button className="btn btn-outline-primary" type="submit">Search</button>
           </form> */}
-          <button onClick={props.backgroundRed} style={{ height: '30px', width: '30px', borderRadius: '50%', backgroundColor: 'red', border: 'none', margin: '10px' }}></button>
-          <button onClick={props.backgroundBlue} style={{ height: '30px', width: '30px', borderRadius: '50%', backgroundColor: 'blue', border: 'none', margin: '10px' }}></button>
-          <button onClick={props.backgroundYellow} style={{ height: '30px', width: '30px', borderRadius: '50%', backgroundColor: 'yellow', border: 'none', margin: '10px' }}></button>
-          <button onClick={props.backgroundGreen} style={{ height: '30px', width: '30px', borderRadius: '50%', backgroundColor: 'green', border: 'none', margin: '10px' }}></button>
           <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}> {/* change the text-dark property with the JS condition */}
             <input className="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" onClick={props.toggleMode} /> {/* when clicked mode will change due to toggleMode */}
             <label className="form-check-label" htmlFor="switchCheckDefault">Enable Dark Mode</label>

@@ -29,28 +29,6 @@ function App() {
     }
   }//function to change mode.
 
-  const [navbarBg, setNavbarBg] = useState('')
-
-  const backgroundBlue = () => {
-    document.body.style.backgroundColor = '#65a2feff'
-    setNavbarBg('#0d6efd')
-  }
-
-  const backgroundRed = () => {
-    document.body.style.backgroundColor = '#fa717fff'
-    setNavbarBg('#dc3545')
-  }
-
-  const backgroundYellow = () => {
-    document.body.style.backgroundColor = '#f9d15a'
-    setNavbarBg('#ffc107')
-  }
-
-  const backgroundGreen = () => {
-    document.body.style.backgroundColor = '#06c46c'
-    setNavbarBg('#198754')
-  }
-
   const [alert, setAlert] = useState(null)
 
   const showAlert = (message, type) => {
@@ -67,7 +45,7 @@ function App() {
     <>
       <Router>
         {/* <Navbar /> */} {/*Here we haven't passed any props so it will render the defaultProps. */}
-        <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} backgroundBlue={backgroundBlue} backgroundYellow={backgroundYellow} backgroundGreen={backgroundGreen} backgroundRed={backgroundRed} navbarBg={navbarBg} /> {/*pass the mode state and toggleMode function as prop with the variables of same name*/}
+        <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} /> {/*pass the mode state and toggleMode function as prop with the variables of same name*/}
         {/* here variables title and aboutText are passed as props to Navbar component.  */}
 
         <Alert alert={alert} />
@@ -76,9 +54,9 @@ function App() {
       my-3: bootstrap class to add margin across y-axis*/}
           {/* Add Heading as a prop in the textform */}
           <Routes>
-            <Route path='/about' element={<About mode={mode}/>}></Route>
+            <Route path='/about' element={<About mode={mode} />}></Route>
             <Route path='/' element={<TextForm heading="Try TextUtils - Word Counter, Character Counter" mode={mode} showAlert={showAlert} />}></Route>
-            
+
             {/* pass the showAlert method in Textform*/}
           </Routes>
         </div>
